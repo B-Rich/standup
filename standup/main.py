@@ -23,6 +23,8 @@ def create_app(settings):
     app.secret_key = settings.SESSION_SECRET
 
     md = Markdown(app)
+    # TODO: We might want to expose Markdown extensions to the config
+    # file.
     md.register_extension(nixheaders.makeExtension)
 
     db.app = app
